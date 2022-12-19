@@ -127,10 +127,10 @@ struct FloatType
 
     float* value = nullptr;
 
-    FloatType& add( float lhs );
-    FloatType& subtract( float lhs );
-    FloatType& multiply( float lhs );
-    FloatType& divide( float lhs );
+    FloatType& add( const float lhs );
+    FloatType& subtract( const float lhs );
+    FloatType& multiply( const float lhs );
+    FloatType& divide( const float lhs );
 
     FloatType& add( const FloatType& lhs );
     FloatType& subtract( const FloatType& lhs );
@@ -159,10 +159,10 @@ struct DoubleType
 
     double* value = nullptr;
 
-    DoubleType& add( double lhs );
-    DoubleType& subtract( double lhs );
-    DoubleType& multiply( double lhs );
-    DoubleType& divide( double lhs );
+    DoubleType& add( const double lhs );
+    DoubleType& subtract( const double lhs );
+    DoubleType& multiply( const double lhs );
+    DoubleType& divide( const double lhs );
 
     DoubleType& add( const DoubleType& lhs );
     DoubleType& subtract( const DoubleType& lhs );
@@ -191,10 +191,10 @@ struct IntType
     
     int* value = nullptr;
 
-    IntType& add( int lhs );
-    IntType& subtract( int lhs );
-    IntType& multiply( int lhs );
-    IntType& divide( int lhs );
+    IntType& add( const int lhs );
+    IntType& subtract( const int lhs );
+    IntType& multiply( const int lhs );
+    IntType& divide( const int lhs );
 
     IntType& add( const IntType& lhs );
     IntType& subtract( const IntType& lhs );
@@ -214,25 +214,25 @@ struct IntType
 };
 
 
-FloatType& FloatType::add( float lhs )
+FloatType& FloatType::add( const float lhs )
 {
     *value += lhs;
     return *this;
 }
 
-FloatType& FloatType::subtract( float lhs )
+FloatType& FloatType::subtract( const float lhs )
 {
     *value -= lhs;
     return *this;
 }
 
-FloatType& FloatType::multiply( float lhs )
+FloatType& FloatType::multiply( const float lhs )
 {
     *value *= lhs;
     return *this;
 }
 
-FloatType& FloatType::divide( float lhs )
+FloatType& FloatType::divide( const float lhs )
 {
     if(lhs == 0.0f)
     {
@@ -307,25 +307,25 @@ FloatType& FloatType::divide( const DoubleType& lhs )
 
 
 
-DoubleType& DoubleType::add( double lhs )
+DoubleType& DoubleType::add( const double lhs )
 {
     *value += lhs;
     return *this;
 }
 
-DoubleType& DoubleType::subtract( double lhs )
+DoubleType& DoubleType::subtract( const double lhs )
 {
     *value -= lhs;
     return *this;
 }
 
-DoubleType& DoubleType::multiply( double lhs )
+DoubleType& DoubleType::multiply( const double lhs )
 {
     *value *= lhs;
     return *this;
 }
 
-DoubleType& DoubleType::divide( double lhs )
+DoubleType& DoubleType::divide( const double lhs )
 {
     if(lhs == 0.0)
     {
@@ -399,25 +399,25 @@ DoubleType& DoubleType::divide( const FloatType& lhs )
 
 
 
-IntType& IntType::add( int lhs )
+IntType& IntType::add( const int lhs )
 {
     *value += lhs;
     return *this;
 }
 
-IntType& IntType::subtract( int lhs )
+IntType& IntType::subtract( const int lhs )
 {
     *value -= lhs;
     return *this;
 }
 
-IntType& IntType::multiply( int lhs )
+IntType& IntType::multiply( const int lhs )
 {
     *value *= lhs;
     return *this;
 }
 
-IntType& IntType::divide( int lhs )
+IntType& IntType::divide( const int lhs )
 {
     if(lhs == 0)
     {
